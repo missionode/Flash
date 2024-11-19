@@ -3,42 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Progressive Clock with Random Mode</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        #clock {
-            font-size: 2em;
-            margin: 20px 0;
-        }
-        #chart {
-            width: 80%;
-            height: 300px;
-            margin: 20px auto;
-            border: 1px solid #ccc;
-            position: relative;
-        }
-        .line {
-            position: absolute;
-            bottom: 0;
-            height: 2px;
-            background: blue;
-        }
-        #controls {
-            margin-top: 20px;
-        }
-        button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 1em;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+
 </head>
 <body>
     <h1>Flash Speed Clock</h1>
@@ -55,6 +22,13 @@
     <button id="admin-btn">Admin</button>
 
     <script>
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js').then(() => {
+                console.log('Service Worker Registered');
+            });
+        }
+
         // Configuration
         const START_TIME = 9; // 9:00 AM
         const PEAK_TIME = 16; // 4:00 PM
