@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+#clock {
+    font-size: 2em;
+    margin: 20px 0;
+}
+#chart {
+    width: 80%;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.line {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background: blue;
+}
+#controls {
+    margin-top: 20px;
+}
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+.hidden {
+    display: none;
+}
