@@ -30,5 +30,16 @@
   
   <button id="admin-btn">Admin</button>
   <script src="js/main.js"></script>
+  <script>
+    window.onload = () => {
+        'use strict';
+    
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+                    .register('sw.js');
+        }
+        
+    }
+  </script>
 </body>
 </html>
