@@ -8,6 +8,43 @@ window.onload = () => {
 
 }
 
+let wakeLockObj 
+
+// Request a screen wake lock:
+navigator.wakeLock.request('screen')
+.then(wakeLock => {
+    // Store the wake lock object for later use
+    wakeLockObj = wakeLock;
+
+    // Wake lock is active
+    console.log('Wake lock is active.');
+
+    // ... Your working code ...
+
+    // Release the wake lock when no longer needed
+    wakeLockObj.release();
+})
+.catch(err => {
+    // Handle error, e.g., user denied the request
+    console.error('Failed to acquire wake lock:', err);
+});
+
+// Sleep the clock
+
+function sleepMode() {
+    if (wakeLockObj) { // Check if wakeLockObj is defined
+        wakeLockObj.release()
+            .then(() => {
+                console.log('Wake lock released successfully.');
+            })
+            .catch(err => {
+                console.error('Error releasing wake lock:', err);
+            });
+    }
+}
+
+
+
     // Configuration
     const START_TIME = 9; // 9:00 AM
     const PEAK_TIME = 16; // 4:00 PM
